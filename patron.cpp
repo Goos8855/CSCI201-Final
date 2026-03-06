@@ -1,4 +1,4 @@
-#include <patron.h>
+#include "patron.h"
 #include <iostream>
 using namespace std;
 
@@ -8,3 +8,14 @@ using namespace std;
 //displayPatron()
 //operator==
 //operator<<
+
+Patron::Patron(string name, int id): name(name), id(id){}
+
+void borrowBook(Book* b){
+    if(b->getStatus()==BookStatus::Available){
+        b->setStatus(BookStatus::CheckedOut);
+        borrowBook.push_back(b);
+    } else {
+        cout << "Book Unavailable" << endl;
+    }
+}
