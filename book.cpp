@@ -3,8 +3,6 @@
 using namespace std;
 
 //todo:
-//setStatus()
-//getStatus()
 //operator==
 //operator<<
 
@@ -32,5 +30,13 @@ void Book::displayInfo() const{
         status = "Checked Out";
     }
     cout << "Genre: " << genreType << endl << "Status: " << status << endl;
+}
+
+void Book::setStatus(BookStatus setStatus){
+    this->status = setStatus;
+}
+
+BookStatus Book::getStatus() const{
+    return this->status;
 }
 
