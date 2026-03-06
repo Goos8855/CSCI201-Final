@@ -6,8 +6,10 @@ using namespace std;
 //operator==
 //operator<<
 
+//Book object: Stores title, author, genre, and status values
 Book::Book(string title, string author, Genre genre):title(title), author(author), genre(genre), status(BookStatus::Available) {}
 
+//Display Information: Outputs book title and author, and selects appropriate string for genre and status
 void Book::displayInfo() const{
     cout << title << " by " << author << endl;
     string genreType;
@@ -32,6 +34,7 @@ void Book::displayInfo() const{
     cout << "Genre: " << genreType << endl << "Status: " << status << endl;
 }
 
+//Status: Gets and sets status :I
 void Book::setStatus(BookStatus setStatus){
     this->status = setStatus;
 }
