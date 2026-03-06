@@ -1,3 +1,12 @@
+
+//todo:
+//loadData()
+//displayBooks()
+//displayPatrons()
+//checkoutBook()
+//returnBook()
+//saveData()
+
 #include <iostream>
 #include <vector>
 #include <string>
