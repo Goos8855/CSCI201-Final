@@ -12,6 +12,7 @@ using namespace std;
 //returnBook()
 
 Library::~Library(){}
+Library::Library(){}
 
 void Library::addBook(Book* b){
     books.push_back(b);
