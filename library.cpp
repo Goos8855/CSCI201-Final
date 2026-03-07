@@ -10,7 +10,7 @@ using namespace std;
 //saveData()
 //checkoutBook()
 //returnBook()
-//displayBooks()
+//displayBooks() 
 //displayPatrons()
 
 Library::~Library(){}
@@ -23,12 +23,23 @@ void Library::addPatron(const Patron& p){
 }
 
 void Library::checkoutBook(int patronId, string title){
-    for(int i=0; i<patrons.size(); i++){
-        if(patrons[i].id == patronId){
-            patrons[i].borrowBook(title);
+    Book* checkOut;
+    for(int i=0; i<books.size(); i++){
+        if(books[i].title == title && books[i].getStatus() == BookStatus::Available){
+            books[i].setStatus(BookStatus::CheckedOut); //still needs fixed
+            checkOut = &books[i];
         } else {
-            cout << "No user found" << endl;
+            cout << "Book Unavailable" << endl;
+            return;
+
         }
     }
-    //this still needs finished
+    for(int i=0; i<patrons.size(); i++){
+        if(patrons[i].id == patronId){
+            patrons[i].borrowBook(checkOut);
+        } else {
+            cout << "No user found" << endl;
+            return;
+        }
+    }
 }

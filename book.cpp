@@ -31,7 +31,7 @@ void Book::displayInfo() const{
     }   else if(this->status == BookStatus::CheckedOut){
         status = "Checked Out";
     }
-    cout << "Genre: " << genreType << endl << "Status: " << status << endl;
+    cout << "Genre: " << genreType << endl << ", Status: " << status << endl;
 }
 
 //Status: Gets and sets status :I
