@@ -1,11 +1,8 @@
 
 //todo:
-//loadData()
-//displayBooks()
-//displayPatrons()
-//checkoutBook()
-//returnBook()
-//saveData()
+//add txt files for books and patrons
+//add more data to said text files
+//test
 
 #include <iostream>
 #include <vector>
