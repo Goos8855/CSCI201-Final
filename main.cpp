@@ -1,3 +1,10 @@
+// CSCI 201 Final Project
+
+// Personal Notes:
+// Use this to compile: g++ main.cpp library.cpp patron.cpp transaction.cpp book.cpp -o program
+// Then use this to run: ./program
+// (the vs code run button will not work)
+
 
 //todo:
 //add txt files for books and patrons
@@ -28,5 +35,6 @@ int main(){
     catch (const std::exception& e) {
         std::cerr << "Application Error: " << e.what() << std::endl;
     }
+    cout << "Program has ran";
     return 0;
 }

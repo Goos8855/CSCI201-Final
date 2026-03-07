@@ -1,6 +1,5 @@
 #include "library.h"
 #include "patron.h"
-#include "patron.cpp"
 #include <iostream>
 using namespace std;
 
@@ -12,7 +11,6 @@ using namespace std;
 //returnBook()
 
 Library::~Library(){}
-Library::Library(){}
 
 void Library::addBook(Book* b){
     books.push_back(b);
@@ -76,4 +74,7 @@ void Library::displayPatrons() const{
         patrons[i].displayPatron();
     }
 }
+
+void Library::loadData(){}
+void Library::saveData(){}
 
