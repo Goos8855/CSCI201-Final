@@ -137,23 +137,28 @@ void Library::loadData(){
     ifstream inputPatrons(loadPatrons);
     if(inputPatrons.is_open()){
         string tempName;
-        int tempId;
+        string tempId;
+        int id;
         while(!inputPatrons.eof()){
             try{
+                getline(inputPatrons, tempId);
+                id = stoi(tempId);
+                cout << tempId << endl;
                 getline(inputPatrons, tempName);
-                inputPatrons >> tempId;
-                inputPatrons.ignore();
+                cout << tempName << endl;
             }
             catch(exception& e){
                 cout << "Error loading patron data: " << e.what() << endl;
-                continue;
+                break;
             }
-            patrons.push_back(Patron(tempName, tempId));
+            patrons.push_back(Patron(tempName, id));
         }
         inputPatrons.close();
     }
 
 
 }
-void Library::saveData(){}
+void Library::saveData(){
+
+}
 

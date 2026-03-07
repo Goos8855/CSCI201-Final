@@ -95,4 +95,3 @@ void Book::setStatus(BookStatus setStatus){
 BookStatus Book::getStatus() const{
     return this->status;
 }
-
