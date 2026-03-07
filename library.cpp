@@ -1,6 +1,7 @@
 #include "library.h"
 #include "patron.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 //todo:
@@ -75,6 +76,66 @@ void Library::displayPatrons() const{
     }
 }
 
-void Library::loadData(){}
+void Library::loadData(){
+    string loadBooks = "books.txt";
+    string loadPatrons = "patrons.txt";
+    ifstream inputBooks(loadBooks);
+    ifstream inputPatrons(loadPatrons);
+
+    if(inputBooks.is_open()){
+        string tempTitle;
+        string tempAuthor;
+        string tempGenre;
+        string type;
+        Genre genre;
+        string tempStatus;
+        BookStatus status;
+        string tempSize;
+        double size;
+        while(!inputBooks.eof()){
+            try{
+                getline(inputBooks, tempTitle);
+                getline(inputBooks, tempAuthor);
+                getline(inputBooks, tempGenre);
+                getline(inputBooks, tempSize);
+                getline(inputBooks, tempStatus);
+                getline(inputBooks, type);
+                if(tempGenre == "Fiction"){
+                    genre = Genre::Fiction;
+                }   else if(tempGenre == "Non-Fiction"){
+                    genre = Genre::NonFiction;
+                }   else if(tempGenre == "Mystery"){
+                    genre = Genre::Mystery;
+                }   else if(tempGenre == "Science"){
+                    genre = Genre::Science;
+                }   else if(tempGenre == "Biography"){
+                    genre = Genre::Biography;
+                }
+                if(tempStatus == "Available"){
+                    status = BookStatus::Available;
+                }   else if(tempStatus == "Checked Out"){
+                    status = BookStatus::CheckedOut;
+                }
+                size = stod(tempSize);
+            }
+            catch(exception& e){
+                cout << "Error loading book data: " << e.what() << endl;
+                continue;
+            }
+            
+            if(type == "printedbook"){
+                books.push_back(new PrintedBook(tempTitle, tempAuthor, genre, int(size)));
+            } else if (type == "ebook"){
+                books.push_back(new EBook(tempTitle, tempAuthor, genre, size));
+            } else {
+                cout << "Error loading book data" << endl;
+            }
+
+        }
+
+    }
+
+
+}
 void Library::saveData(){}
 

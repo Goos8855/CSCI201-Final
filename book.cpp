@@ -7,7 +7,10 @@ using namespace std;
 //operator<<
 
 //Book object: Stores title, author, genre, and status values
+//Book types: Same thing, but adding page number or file size
 Book::Book(string title, string author, Genre genre):title(title), author(author), genre(genre), status(BookStatus::Available) {}
+EBook::EBook(string title, string author, Genre genre, double size): Book(title, author, genre), fileSizeMB(size) {}
+PrintedBook::PrintedBook(string title, string author, Genre genre, int pages): Book(title, author, genre), pageCount(pages) {}
 
 //Display Information: Outputs book title and author, and selects appropriate string for genre and status
 void Book::displayInfo() const{
