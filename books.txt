@@ -1,9 +1,3 @@
-genre
-title
-author
-type
-size
-available
 Fiction
 book1
 author1

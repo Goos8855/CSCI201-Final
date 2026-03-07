@@ -4,15 +4,10 @@
 #include <fstream>
 using namespace std;
 
-//todo:
-//library object
-//loadData()
-//saveData()
-//checkoutBook()
-//returnBook()
-
+//Object
 Library::~Library(){}
 
+//addBook/Patron: adds book to list in the book class and patrons to patron list in patron class
 void Library::addBook(Book* b){
     books.push_back(b);
 }
@@ -20,16 +15,14 @@ void Library::addPatron(const Patron& p){
     patrons.push_back(p);
 }
 
-void Library::checkoutBook(int patronId, string title){ //still needs fixed
+//checkout & return: adds and removes books from available library and personal libraries
+void Library::checkoutBook(int patronId, string title){
     int checkOut;
     for(int i=0; i<books.size(); i++){
         if(books[i]->title == title && books[i]->getStatus() == BookStatus::Available){
             books[i]->setStatus(BookStatus::CheckedOut); 
+            cout << "Book checked out";
             checkOut = i;
-        } else {
-            cout << "Book Unavailable" << endl;
-            return;
-
         }
     }
     for(int i=0; i<patrons.size(); i++){
@@ -47,11 +40,8 @@ void Library::returnBook(int patronId, string title){ //also has errors for some
     for(int i=0; i<books.size(); i++){
         if(books[i]->title == title && books[i]->getStatus() == BookStatus::CheckedOut){
             books[i]->setStatus(BookStatus::Available); 
+            cout << "Book returned" << endl;
             returnBook = books[i];
-        } else {
-            cout << "Book Unavailable" << endl;
-            return;
-
         }
     }
     for(int i=0; i<patrons.size(); i++){
@@ -143,9 +133,7 @@ void Library::loadData(){
             try{
                 getline(inputPatrons, tempId);
                 id = stoi(tempId);
-                cout << tempId << endl;
                 getline(inputPatrons, tempName);
-                cout << tempName << endl;
             }
             catch(exception& e){
                 cout << "Error loading patron data: " << e.what() << endl;

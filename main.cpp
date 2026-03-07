@@ -5,11 +5,17 @@
 // Then use this to run: ./program
 // (the vs code run button will not work)
 
+//Books.txt is in this format:
+//genre
+//title
+//author
+//type
+//size
+//available
 
-//todo:
-//add txt files for books and patrons
-//add more data to said text files
-//test
+//Patrons.txt is in this format:
+//id
+//name
 
 #include <iostream>
 #include <vector>
@@ -28,6 +34,7 @@ int main(){
     cout << "Library Management System: Make a selection" << endl;
     cout << "quit" << endl << "patrons" << endl << "books" << endl << "checkout" << endl << "return" << endl << "load" << endl << "save" << endl;
 
+    //Menu selection and calls selected functions
     while(true){
         cin >> choice;
         if(choice == "quit"){
@@ -56,7 +63,8 @@ int main(){
             cout << "Invalid Command" << endl;
         }
     }
-
+    
+    //Testing code, though it should never get here since it breaks on quit  
     try {
         library.loadData();
         library.displayBooks();

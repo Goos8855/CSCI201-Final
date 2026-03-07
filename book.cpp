@@ -2,10 +2,6 @@
 #include <iostream>
 using namespace std;
 
-//todo:
-//operator==
-//operator<<
-
 //Book object: Stores title, author, genre, and status values
 //Book types: Same thing, but adding page number or file size
 Book::Book(string title, string author, Genre genre):title(title), author(author), genre(genre), status(BookStatus::Available) {}
