@@ -1,6 +1,6 @@
 // CSCI 201 Final Project
 
-// Personal Notes:
+// Notes:
 // Use this to compile: g++ main.cpp library.cpp patron.cpp transaction.cpp book.cpp -o program
 // Then use this to run: ./program
 // (the vs code run button will not work)
@@ -22,7 +22,7 @@ using namespace std;
 
 int main(){
 
-    
+
 
     Library library;
     try {
