@@ -6,8 +6,8 @@ Utilizing a provided sample for a Library Management System, this system:
 - Utilizes classes, structures, exception handing, headers, and a variety of other concepts covered throughout the quarter
 
 Compilation & Execution:
-g++ main.cpp library.cpp patron.cpp transaction.cpp book.cpp -o program
-./program
+1. "g++ main.cpp library.cpp patron.cpp transaction.cpp book.cpp -o program"
+2. "./program"
 
 Patron.txt formatting:
 - id
