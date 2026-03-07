@@ -78,9 +78,7 @@ void Library::displayPatrons() const{
 
 void Library::loadData(){
     string loadBooks = "books.txt";
-    string loadPatrons = "patrons.txt";
     ifstream inputBooks(loadBooks);
-    ifstream inputPatrons(loadPatrons);
 
     if(inputBooks.is_open()){
         string tempTitle;
@@ -130,9 +128,13 @@ void Library::loadData(){
             } else {
                 cout << "Error loading book types" << endl;
             }
-            inputBooks.close();
+
         }
+        inputBooks.close();
+
     }
+    string loadPatrons = "patrons.txt";
+    ifstream inputPatrons(loadPatrons);
     if(inputPatrons.is_open()){
         string tempName;
         int tempId;
@@ -140,15 +142,17 @@ void Library::loadData(){
             try{
                 getline(inputPatrons, tempName);
                 inputPatrons >> tempId;
-                patrons.push_back(Patron(tempName, tempId));
+                inputPatrons.ignore();
             }
             catch(exception& e){
                 cout << "Error loading patron data: " << e.what() << endl;
                 continue;
             }
-            inputPatrons.close();
+            patrons.push_back(Patron(tempName, tempId));
         }
+        inputPatrons.close();
     }
+
 
 }
 void Library::saveData(){}

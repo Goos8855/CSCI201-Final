@@ -1,12 +1,10 @@
-id 
-name
-1 
+1
 Josh
-2 
+2
 Dan
-3 
+3
 Mary
-4 
+4
 Sandy
-5 
+5
 Alice
