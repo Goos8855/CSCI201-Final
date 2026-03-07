@@ -34,7 +34,7 @@ void Book::displayInfo() const{
     }   else if(this->status == BookStatus::CheckedOut){
         status = "Checked Out";
     }
-    cout << "Genre: " << genreType << endl << ", Status: " << status << endl;
+    cout << "Genre: " << genreType << endl << "Status: " << status << endl << "----------" << endl;
 }
 
 void EBook::displayInfo() const{
@@ -58,7 +58,7 @@ void EBook::displayInfo() const{
     }   else if(this->status == BookStatus::CheckedOut){
         status = "Checked Out";
     }
-    cout << "Genre: " << genreType << endl << ", Status: " << status << endl;
+    cout << "Genre: " << genreType << endl << "Status: " << status << endl << "----------" << endl;
 }
 
 
@@ -83,7 +83,7 @@ void PrintedBook::displayInfo() const{
     }   else if(this->status == BookStatus::CheckedOut){
         status = "Checked Out";
     }
-    cout << "Genre: " << genreType << endl << ", Status: " << status << endl;
+    cout << "Genre: " << genreType << endl << "Status: " << status << endl << "----------" << endl;
 }
 
 

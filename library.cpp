@@ -94,12 +94,13 @@ void Library::loadData(){
         double size;
         while(!inputBooks.eof()){
             try{
+                getline(inputBooks, tempGenre);
                 getline(inputBooks, tempTitle);
                 getline(inputBooks, tempAuthor);
-                getline(inputBooks, tempGenre);
+                getline(inputBooks, type);
                 getline(inputBooks, tempSize);
                 getline(inputBooks, tempStatus);
-                getline(inputBooks, type);
+
                 if(tempGenre == "Fiction"){
                     genre = Genre::Fiction;
                 }   else if(tempGenre == "Non-Fiction"){
@@ -116,7 +117,6 @@ void Library::loadData(){
                 }   else if(tempStatus == "Checked Out"){
                     status = BookStatus::CheckedOut;
                 }
-                size = stod(tempSize);
             }
             catch(exception& e){
                 cout << "Error loading book data: " << e.what() << endl;
@@ -128,13 +128,27 @@ void Library::loadData(){
             } else if (type == "ebook"){
                 books.push_back(new EBook(tempTitle, tempAuthor, genre, size));
             } else {
-                cout << "Error loading book data" << endl;
+                cout << "Error loading book types" << endl;
             }
-
+            inputBooks.close();
         }
-
     }
-
+    if(inputPatrons.is_open()){
+        string tempName;
+        int tempId;
+        while(!inputPatrons.eof()){
+            try{
+                getline(inputPatrons, tempName);
+                inputPatrons >> tempId;
+                patrons.push_back(Patron(tempName, tempId));
+            }
+            catch(exception& e){
+                cout << "Error loading patron data: " << e.what() << endl;
+                continue;
+            }
+            inputPatrons.close();
+        }
+    }
 
 }
 void Library::saveData(){}

@@ -26,22 +26,24 @@ int main(){
     string choice;
 
     cout << "Library Management System: Make a selection" << endl;
-    cout << "quit" << endl << "displayPatrons" << endl << "displayBooks" << endl << "checkoutBook" << endl << "returnBook" << endl;
+    cout << "quit" << endl << "patrons" << endl << "books" << endl << "checkout" << endl << "return" << endl << "load" << endl << "save" << endl;
 
     while(true){
         cin >> choice;
         if(choice == "quit"){
             return 0;
-        } else if (choice == "displayPatrons"){
+        } else if (choice == "patrons"){
             library.displayPatrons();
-        } else if (choice == "displayBooks"){
+        } else if (choice == "books"){
             library.displayBooks();
-        } else if (choice == "checkoutBook"){
+        } else if (choice == "checkout"){
+            cout << "Enter ID and book Title: ";
             int id;
             string title;
             cin >> id >> title;
             library.checkoutBook(id, title);
-        } else if (choice == "returnBook"){
+        } else if (choice == "return"){
+            cout << "Enter ID and book Title: ";
             int id;
             string title;
             cin >> id >> title;
