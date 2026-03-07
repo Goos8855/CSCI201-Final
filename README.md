@@ -23,4 +23,5 @@ Books.txt formatting:
 - Availability Status
 
 ran out of time with this one ._.
+
 Note: .o files don't have anything to do with the final product, it's just a byproduct of compiling the program
