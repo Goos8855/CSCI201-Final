@@ -21,11 +21,11 @@ void Library::addPatron(const Patron& p){
 }
 
 void Library::checkoutBook(int patronId, string title){ //still needs fixed
-    Book* checkOut;
+    int checkOut;
     for(int i=0; i<books.size(); i++){
         if(books[i]->title == title && books[i]->getStatus() == BookStatus::Available){
             books[i]->setStatus(BookStatus::CheckedOut); 
-            checkOut = books[i];
+            checkOut = i;
         } else {
             cout << "Book Unavailable" << endl;
             return;
@@ -34,7 +34,7 @@ void Library::checkoutBook(int patronId, string title){ //still needs fixed
     }
     for(int i=0; i<patrons.size(); i++){
         if(patrons[i].id == patronId){
-            patrons[i].borrowBook(checkOut);
+            patrons[i].borrowBook(books[checkOut]);
         } else {
             cout << "No user found" << endl;
             return;
@@ -45,9 +45,9 @@ void Library::checkoutBook(int patronId, string title){ //still needs fixed
 void Library::returnBook(int patronId, string title){ //also has errors for some reason
     Book* returnBook;
     for(int i=0; i<books.size(); i++){
-        if(books[i].title == title && books[i].getStatus() == BookStatus::CheckedOut){
-            books[i].setStatus(BookStatus::Available); 
-            returnBook = &books[i];
+        if(books[i]->title == title && books[i]->getStatus() == BookStatus::CheckedOut){
+            books[i]->setStatus(BookStatus::Available); 
+            returnBook = books[i];
         } else {
             cout << "Book Unavailable" << endl;
             return;

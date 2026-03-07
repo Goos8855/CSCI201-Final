@@ -1,1 +1,6 @@
 genre title author type size
+Fiction book1 author1 EBook 12
+NonFiction book2 author2 PrintedBook 8
+Mystery book3 author3 PrintedBook 20
+Science book4 author4 EBook 24
+Biography book5 author5 EBook 56

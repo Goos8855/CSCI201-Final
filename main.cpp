@@ -8,7 +8,8 @@
 #include <vector>
 #include <string>
 #include "library.h"
-#include "library.cpp"
+#include "book.h"
+#include "patron.h"
 
 using namespace std;
 
