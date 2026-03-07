@@ -22,9 +22,39 @@ using namespace std;
 
 int main(){
 
-
-
     Library library;
+    string choice;
+
+    cout << "Library Management System: Make a selection" << endl;
+    cout << "quit" << endl << "displayPatrons" << endl << "displayBooks" << endl << "checkoutBook" << endl << "returnBook" << endl;
+
+    while(true){
+        cin >> choice;
+        if(choice == "quit"){
+            return 0;
+        } else if (choice == "displayPatrons"){
+            library.displayPatrons();
+        } else if (choice == "displayBooks"){
+            library.displayBooks();
+        } else if (choice == "checkoutBook"){
+            int id;
+            string title;
+            cin >> id >> title;
+            library.checkoutBook(id, title);
+        } else if (choice == "returnBook"){
+            int id;
+            string title;
+            cin >> id >> title;
+            library.returnBook(id, title);
+        } else if (choice == "load"){
+            library.loadData();
+        } else if (choice == "save"){
+            library.saveData();
+        } else {
+            cout << "Invalid Command" << endl;
+        }
+    }
+
     try {
         library.loadData();
         library.displayBooks();
