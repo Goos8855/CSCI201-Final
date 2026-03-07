@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include "library.h"
+#include "library.cpp"
 
 using namespace std;
 

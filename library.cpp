@@ -10,8 +10,6 @@ using namespace std;
 //saveData()
 //checkoutBook()
 //returnBook()
-//displayBooks() 
-//displayPatrons()
 
 Library::~Library(){}
 
@@ -22,12 +20,12 @@ void Library::addPatron(const Patron& p){
     patrons.push_back(p);
 }
 
-void Library::checkoutBook(int patronId, string title){
+void Library::checkoutBook(int patronId, string title){ //still needs fixed
     Book* checkOut;
     for(int i=0; i<books.size(); i++){
-        if(books[i].title == title && books[i].getStatus() == BookStatus::Available){
-            books[i].setStatus(BookStatus::CheckedOut); //still needs fixed
-            checkOut = &books[i];
+        if(books[i]->title == title && books[i]->getStatus() == BookStatus::Available){
+            books[i]->setStatus(BookStatus::CheckedOut); 
+            checkOut = books[i];
         } else {
             cout << "Book Unavailable" << endl;
             return;
@@ -43,3 +41,38 @@ void Library::checkoutBook(int patronId, string title){
         }
     }
 }
+
+void Library::returnBook(int patronId, string title){ //also has errors for some reason
+    Book* returnBook;
+    for(int i=0; i<books.size(); i++){
+        if(books[i].title == title && books[i].getStatus() == BookStatus::CheckedOut){
+            books[i].setStatus(BookStatus::Available); 
+            returnBook = &books[i];
+        } else {
+            cout << "Book Unavailable" << endl;
+            return;
+
+        }
+    }
+    for(int i=0; i<patrons.size(); i++){
+        if(patrons[i].id == patronId){
+            patrons[i].returnBook(returnBook);
+        } else {
+            cout << "No user found" << endl;
+            return;
+        }
+    }
+}
+
+//these two just prints the data in their respective lists
+void Library::displayBooks() const{
+    for(int i=0; i<books.size(); i++){
+        books[i]->displayInfo();
+    }
+}
+void Library::displayPatrons() const{
+    for(int i=0; i<patrons.size(); i++){
+        patrons[i].displayPatron();
+    }
+}
+

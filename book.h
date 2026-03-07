@@ -8,12 +8,12 @@ enum class Genre { Fiction, NonFiction, Mystery, Science, Biography };
 enum class BookStatus { Available, CheckedOut };
 
 class Book {
-protected:
+public:
     std::string title;
     std::string author;
     Genre genre;
     BookStatus status;
-public:
+    
     Book(std::string t, std::string a, Genre g);
     virtual ~Book() = default;
 

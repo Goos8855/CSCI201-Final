@@ -6,10 +6,11 @@
 #include "book.h"
 
 class Patron {
+    
+public:
     std::string name;
     int id;
     std::vector<Book*> borrowedBooks;
-public:
     Patron(std::string n, int i);
     void borrowBook(Book* b);
     void returnBook(Book* b);
