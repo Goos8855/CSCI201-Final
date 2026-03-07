@@ -1,3 +1,4 @@
+//Split into header files from final project template
 #ifndef LIBRARY_H
 #define LIBRARY_H
 #include <vector>

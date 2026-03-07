@@ -1,3 +1,4 @@
+//Split into header files from final project template
 #ifndef BOOK_H
 #define BOOK_H
 

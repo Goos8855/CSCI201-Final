@@ -21,16 +21,13 @@ void Library::checkoutBook(int patronId, string title){
     for(int i=0; i<books.size(); i++){
         if(books[i]->title == title && books[i]->getStatus() == BookStatus::Available){
             books[i]->setStatus(BookStatus::CheckedOut); 
-            cout << "Book checked out";
+            cout << "Book checked out" << endl;
             checkOut = i;
         }
     }
     for(int i=0; i<patrons.size(); i++){
         if(patrons[i].id == patronId){
             patrons[i].borrowBook(books[checkOut]);
-        } else {
-            cout << "No user found" << endl;
-            return;
         }
     }
 }
@@ -47,9 +44,6 @@ void Library::returnBook(int patronId, string title){ //also has errors for some
     for(int i=0; i<patrons.size(); i++){
         if(patrons[i].id == patronId){
             patrons[i].returnBook(returnBook);
-        } else {
-            cout << "No user found" << endl;
-            return;
         }
     }
 }
@@ -66,6 +60,7 @@ void Library::displayPatrons() const{
     }
 }
 
+//reads data in the sequence, in the order of title, author, genre, type, size, then status, before appending it to the books list
 void Library::loadData(){
     string loadBooks = "books.txt";
     ifstream inputBooks(loadBooks);
@@ -143,8 +138,6 @@ void Library::loadData(){
         }
         inputPatrons.close();
     }
-
-
 }
 void Library::saveData(){
 

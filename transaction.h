@@ -1,3 +1,4 @@
+//Split into header files from final project template
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 

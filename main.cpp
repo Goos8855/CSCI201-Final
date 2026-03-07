@@ -26,6 +26,7 @@
 
 using namespace std;
 
+//main function (hosts gui and calls all the other class functions)
 int main(){
 
     Library library;

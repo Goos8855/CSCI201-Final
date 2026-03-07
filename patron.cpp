@@ -16,8 +16,6 @@ void Patron::borrowBook(Book* b){
     if(b->getStatus()==BookStatus::Available){
         b->setStatus(BookStatus::CheckedOut);
         borrowedBooks.push_back(b);
-    } else {
-        cout << "Book Unavailable" << endl;
     }
 }
 
@@ -30,7 +28,6 @@ void Patron::returnBook(Book* b){
             break;
         }
     }
-    cout << "Book not borrowed" << endl;
 }
 
 //displayPatron: prints name, id, and books borrowed in terminal
